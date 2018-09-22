@@ -1,5 +1,5 @@
 # AWS RHEL 7 Initialization
-Version : 0.1.0  
+Version : 0.1.1  
 One script that does it all, updates your system, enable required repos, install essential packages, and more..
 
 ###### Features:
