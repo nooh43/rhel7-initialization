@@ -31,9 +31,6 @@ then
     exit 0
 fi
 
-# login as root
-sudo su
-
 # Creating a logs folder
 mkdir logs
 
@@ -62,7 +59,6 @@ read -p "Would you like to change your root password ? [y/N] "
 echo
 if [[ $REPLY =~ ^[Yy]$ ]]
 then
-    sudo su
     sudo passwd
     echo -e "Root Password               [\e[1;37;1;1;42m   +done   \e[0m]"
     echo
@@ -73,7 +69,7 @@ fi
 echo -ne "SYSTEM UPDATE               [\e[1;30;1;1;47min progress\e[0m]\r"
 {
     sudo yum -y update
-} > log/out1.log 2> log/err1.log
+} > logs/out1.log 2> logs/err1.log
 echo -ne "SYSTEM UPDATE               [\e[1;37;1;1;42m   +done   \e[0m]"
 echo
 
@@ -81,7 +77,7 @@ echo
 echo -ne "ENABLING REPOS              [\e[1;30;1;1;47min progress\e[0m]\r"
 {
     sudo yum-config-manager --enable rhui-REGION-rhel-server-extras rhui-REGION-rhel-server-optional rhui-REGION-rhel-server-supplementary rhui-REGION-rhel-server-rhscl
-} log/out2.log 2> log/err2.log
+} > logs/out2.log 2> logs/err2.log
 echo -ne "ENABLING REPOS              [\e[1;37;1;1;42m   +done   \e[0m]"
 echo
 
@@ -91,7 +87,7 @@ echo -ne "EPEL INSTALLATION           [\e[1;30;1;1;47min progress\e[0m]\r"
     sudo yum -y install yum install epel-release
     sudo yum -y install https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
     sudo yum -y update
-} > log/out3.log 2> log/err3.log
+} > logs/out3.log 2> logs/err3.log
 echo -ne "EPEL INSTALLATION           [\e[1;37;1;1;42m   +done   \e[0m]"
 echo
 
