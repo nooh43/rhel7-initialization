@@ -12,13 +12,15 @@ The script updates the system and enable required repos
 ###### How to use
 1. Login as root
 `sudo su`
-2. Clone the repository 
+2. Install git
+`sudo yum -y install git`
+3. Clone the repository 
 `git clone https://github.com/nooh43/rhel7-initialization.git`
-3. Browse the folder
+4. Browse the folder
 `cd rhel7-initialization`
-4. Give the permissions
+5. Give the permissions
 `chmod +x setup.sh`
-5. Launch the script
+6. Launch the script
 `./setup.sh`
 
 ###### Author
