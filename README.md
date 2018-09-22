@@ -1,6 +1,6 @@
 # AWS RHEL 7 Initialization
 Version : 0.1.0  
-The script updates the system and enable required repos  
+One script that does it all, updates your system, enable required repos, install essential packages, and more..
 
 ###### Features:
 - Update your system
@@ -8,6 +8,7 @@ The script updates the system and enable required repos
 - Enable/Add EPEL
 - Setup FQDN
 - Change root password
+- Install essential packages (nano, wget)
 
 ###### How to use
 1. Login as root
