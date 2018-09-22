@@ -5,13 +5,13 @@
 # .-.    . . .-.-.
 # |.|.-.-|-.-|-`-..-,.-.. .
 # `-``-`-'-' ' `-'`'-'   `
+clear
 
 # Some Unnecessary Variables, but they're here anyway
 version=V0.1.0
 oss="CentOs7, RHEL7"
 
 # Welcome Massage
-clear
 echo -e "\e[1;34;1m+=================================\e[0m"
 echo -e "\e[1;34;1m+\e[0m" "RHEL7 initializer -  " $version
 echo -e "\e[1;34;1m+\e[0m" "supported operating systems: " $oss
@@ -31,10 +31,13 @@ then
     exit 0
 fi
 
+# login as root
+sudo su
+
 # Creating a logs folder
 mkdir logs
 
-# Asking about hostname
+# Hostname Update
 read -p "Would you like to update your hostname ? [y/N] "
 echo
 if [[ $REPLY =~ ^[Yy]$ ]]
@@ -50,6 +53,19 @@ then
     read publicip
     echo "$publicip $hostnamedomain $yourhostname" >> /etc/hosts
     hostnamectl set-hostname $yourhostname
+    echo -e "HOSTNAME UPDATE             [\e[1;37;1;1;42m   +done   \e[0m]"
+    echo
+fi
+
+# Root Password Change
+read -p "Would you like to change your root password ? [y/N] "
+echo
+if [[ $REPLY =~ ^[Yy]$ ]]
+then
+    sudo su
+    sudo passwd
+    echo -e "Root Password               [\e[1;37;1;1;42m   +done   \e[0m]"
+    echo
 fi
 
 
