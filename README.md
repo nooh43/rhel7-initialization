@@ -17,7 +17,9 @@ The script updates the system and enable required repos
 3. Browse the folder
 `cd rhel7-initialization`
 4. Give the permissions
-`chmod +x setup.sh`  
+`chmod +x setup.sh`
+5. Launch the script
+`./setup.sh`
 
 ###### Author
 Nasser Alhumood - [QatifServ](http://qatifserv.com/)
